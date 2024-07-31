@@ -3,7 +3,7 @@ import { FindOneOptions } from 'typeorm'
 import { UserDTO } from './dto/user.dto'
 import { UserRepository } from './user.repository'
 import * as bcrypt from 'bcrypt'
-import { User } from './entity/user.entity'
+import { User } from '~/entities/user'
 
 @Injectable()
 export class UserService {

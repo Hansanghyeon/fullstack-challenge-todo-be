@@ -8,11 +8,11 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2024-07-21T09:02:34.321Z",
-    "modified": "2024-07-21T09:05:09.770Z",
+    "modified": "2024-07-31T03:00:45.326Z",
     "headers": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"user_email\": \"test@test.com\",\n  \"password\": \"12345\"\n}",
+      "raw": "{\n  \"user_email\": \"test@test.com\",\n  \"password\": \"12345678\"\n}",
       "form": []
     }
   },

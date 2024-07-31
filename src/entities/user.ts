@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
-import { UserAuthority } from './user-authority.entity'
+import { UserAuthority } from './user-authority'
 
 @Entity('user')
 export class User {

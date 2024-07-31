@@ -5,7 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm'
-import { User } from './user.entity'
+import { User } from './user'
 
 @Entity('user_authority')
 export class UserAuthority {
