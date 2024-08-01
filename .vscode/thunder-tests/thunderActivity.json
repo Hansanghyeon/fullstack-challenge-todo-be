@@ -42,12 +42,8 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2024-07-21T09:05:40.952Z",
-    "modified": "2024-07-21T09:06:22.374Z",
-    "headers": [],
-    "auth": {
-      "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcl9lbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdXRob3JpdGllcyI6W3sibmFtZSI6IlJPTEVfQURNSU4ifSx7Im5hbWUiOiJST0xFX1VTRVIifV0sImlhdCI6MTcyMTU1MjcxMCwiZXhwIjoxNzIxNTUzMDEwfQ.j427jtw0ukKfIF95Fqe4sdyjoCUzJOxiifB-G8XJJCk"
-    }
+    "modified": "2024-07-31T03:40:37.321Z",
+    "headers": []
   },
   {
     "_id": "d4214a94-83ec-4d7b-9d53-f2bfbe6ac392",
@@ -58,11 +54,39 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2024-07-21T09:06:42.090Z",
-    "modified": "2024-07-21T09:06:55.921Z",
+    "modified": "2024-07-31T03:40:35.629Z",
+    "headers": []
+  },
+  {
+    "_id": "decd4335-e0ed-40d9-ac56-9d2f4247c29e",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{domain}}/tasks",
+    "url": "{{domain}}/tasks",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2024-07-31T03:10:16.574Z",
+    "modified": "2024-07-31T03:39:39.618Z",
     "headers": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcl9lbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdXRob3JpdGllcyI6W3sibmFtZSI6IlJPTEVfQURNSU4ifSx7Im5hbWUiOiJST0xFX1VTRVIifV0sImlhdCI6MTcyMTU1MjcxMCwiZXhwIjoxNzIxNTUzMDEwfQ.j427jtw0ukKfIF95Fqe4sdyjoCUzJOxiifB-G8XJJCk"
+      "bearer": "master_token"
+    }
+  },
+  {
+    "_id": "03c92a4b-89d8-4358-903d-25196cce46bd",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{domain}}/tasks",
+    "url": "{{domain}}/tasks",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2024-07-31T03:36:20.197Z",
+    "modified": "2024-07-31T03:39:35.580Z",
+    "headers": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "master_token"
     }
   }
 ]
