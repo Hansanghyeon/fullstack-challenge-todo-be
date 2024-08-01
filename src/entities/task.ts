@@ -5,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm'
+import { 할일_상태 } from '~/constants/할일_상태'
 
 @Entity()
 export class Task {
@@ -22,8 +23,8 @@ export class Task {
 
   @Column({
     type: 'enum',
-    enum: ['pending', 'in_progress', 'completed'],
-    default: 'pending',
+    enum: Object.values(할일_상태),
+    default: 할일_상태.보류,
   })
   status: string
 
