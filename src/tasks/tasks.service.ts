@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
-import { TaskRepository } from './task.repository'
+import { TaskRepository } from './repository/task.repository'
 import { TaskDTO } from './dto/task.dto'
 
 @Injectable()
