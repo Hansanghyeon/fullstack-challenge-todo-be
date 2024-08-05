@@ -11,6 +11,8 @@ import { pipe, flow } from 'fp-ts/function'
 import { TasksModule } from './tasks/tasks.module'
 import { TasksService } from './tasks/tasks.service'
 import { Task } from './entities/task'
+import { UserTask } from './entities/user_task'
+import { UserTaskService } from './tasks/user-task.service'
 
 @Module({
   imports: [
@@ -25,7 +27,7 @@ import { Task } from './entities/task'
       username: pipe(process.env.DB_USER),
       password: pipe(process.env.DB_PASSWORD),
       database: pipe(process.env.DB_NAME),
-      entities: [User, UserAuthority, Task],
+      entities: [User, UserAuthority, Task, UserTask],
       synchronize: true,
     }),
     AuthModule,
@@ -33,6 +35,6 @@ import { Task } from './entities/task'
     TasksModule,
   ],
   controllers: [AppController],
-  providers: [AppService, TasksService],
+  providers: [AppService, TasksService, UserTaskService],
 })
 export class AppModule {}
