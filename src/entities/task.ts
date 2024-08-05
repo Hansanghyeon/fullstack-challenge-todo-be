@@ -36,7 +36,4 @@ export class Task {
 
   @UpdateDateColumn()
   updatedAt: Date
-
-  // @OneToMany(() => UserTask, (userTask) => userTask.task)
-  // userTasks: UserTask[];
 }
