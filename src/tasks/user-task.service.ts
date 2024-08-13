@@ -1,3 +1,5 @@
+import { pipe } from 'fp-ts/lib/function'
+import * as A from 'fp-ts/Array'
 import { UserTaskDTO } from './dto/user-task.dto'
 import { UserTaskRepository } from './repository/user-task.repository'
 import { Injectable } from '@nestjs/common'
@@ -6,8 +8,15 @@ import { Injectable } from '@nestjs/common'
 export class UserTaskService {
   constructor(private userTaskRepository: UserTaskRepository) {}
 
-  async findAll() {
-    return await this.userTaskRepository.find()
+  async findAll(userId: number) {
+    const tasks = await this.userTaskRepository.find({
+      where: { user: { id: userId } },
+      relations: ['task'],
+    })
+    return pipe(
+      tasks,
+      A.map((e) => e.task),
+    )
   }
 
   // async findUserTask(userId: number, taskId: number) {

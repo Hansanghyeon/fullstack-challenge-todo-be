@@ -24,8 +24,8 @@ export class TasksController {
   ) {}
 
   @Get()
-  async findAll() {
-    return await this.tasksService.findAll()
+  async findAll(@Req() req: AppRequest) {
+    return await this.userTaskService.findAll(req.user?.id)
   }
 
   @Post()

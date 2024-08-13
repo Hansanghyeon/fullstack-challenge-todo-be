@@ -42,8 +42,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2024-07-21T09:05:40.952Z",
-    "modified": "2024-07-31T03:40:37.321Z",
-    "headers": []
+    "modified": "2024-08-01T03:33:12.864Z",
+    "headers": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9lbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdXRob3JpdGllcyI6W10sImlhdCI6MTcyMjQ4MzE4NywiZXhwIjoxNzIyNDgzNDg3fQ.5XbJsCP61NyiY4QdPp0Nc_czJnTCdW7MAJT5wkTyM6I"
+    }
   },
   {
     "_id": "d4214a94-83ec-4d7b-9d53-f2bfbe6ac392",
@@ -54,8 +58,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2024-07-21T09:06:42.090Z",
-    "modified": "2024-07-31T03:40:35.629Z",
-    "headers": []
+    "modified": "2024-08-01T03:33:19.274Z",
+    "headers": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9lbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdXRob3JpdGllcyI6W10sImlhdCI6MTcyMjQ4MzE4NywiZXhwIjoxNzIyNDgzNDg3fQ.5XbJsCP61NyiY4QdPp0Nc_czJnTCdW7MAJT5wkTyM6I"
+    }
   },
   {
     "_id": "decd4335-e0ed-40d9-ac56-9d2f4247c29e",
@@ -66,11 +74,11 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2024-07-31T03:10:16.574Z",
-    "modified": "2024-07-31T03:39:39.618Z",
+    "modified": "2024-08-13T03:53:04.735Z",
     "headers": [],
     "auth": {
       "type": "bearer",
-      "bearer": "master_token"
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9lbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdXRob3JpdGllcyI6W3sibmFtZSI6IlJPTEVfVVNFUiJ9LHsibmFtZSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTcyMzUyMTE3NywiZXhwIjoxNzIzNTIxNDc3fQ.I4KiROy68-c47QKgtKrw85HXZfB1twCOu8R5s65bplE"
     }
   },
   {
@@ -82,11 +90,16 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2024-07-31T03:36:20.197Z",
-    "modified": "2024-07-31T03:39:35.580Z",
+    "modified": "2024-08-13T03:08:47.566Z",
     "headers": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"할일 12093021932\",\n  \"description\": \"설명은 어떻게할 것인가?\"\n}",
+      "form": []
+    },
     "auth": {
       "type": "bearer",
-      "bearer": "master_token"
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9lbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdXRob3JpdGllcyI6W3sibmFtZSI6IlJPTEVfVVNFUiJ9LHsibmFtZSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTcyMzUxODMwNiwiZXhwIjoxNzIzNTE4NjA2fQ.jib3NtyITlt0Wt9B5tiQVILf-9f-QeaTTm9RGpZ5PB8"
     }
   }
 ]
