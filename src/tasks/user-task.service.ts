@@ -19,15 +19,20 @@ export class UserTaskService {
     )
   }
 
-  // async findUserTask(userId: number, taskId: number) {
-  //   return await this.userTaskRepository.findOne({ where: { user } })
-  // }
+  async findUserTask(userId: number, taskId: number) {
+    // userId와 taskId를 받아서 userTask를 찾는다.
+    return await this.userTaskRepository.findOne({
+      where: { user: { id: userId }, task: { id: taskId } },
+    })
+  }
 
   async create(newUserTask: UserTaskDTO) {
     return await this.userTaskRepository.save(newUserTask)
   }
 
-  // async remove(id: number) {
-  //   await this.userTaskRepository.delete(id)
-  // }
+  async remove(userId: number, taskId: number) {
+    const { id } = await this.findUserTask(userId, taskId)
+    // userId와 taskId를 받아서 삭제한다.
+    return await this.userTaskRepository.delete(id)
+  }
 }
