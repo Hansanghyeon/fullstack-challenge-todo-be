@@ -8,11 +8,11 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2024-07-21T09:02:34.321Z",
-    "modified": "2024-07-31T03:00:45.326Z",
+    "modified": "2024-09-24T03:41:48.378Z",
     "headers": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"user_email\": \"test@test.com\",\n  \"password\": \"12345678\"\n}",
+      "raw": "{\n  \"user_email\": \"{{user_email}}\",\n  \"password\": \"{{user_password}}\"\n}",
       "form": []
     }
   },
@@ -25,11 +25,11 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2024-07-21T09:03:49.342Z",
-    "modified": "2024-07-21T09:05:16.357Z",
+    "modified": "2024-09-24T03:42:37.648Z",
     "headers": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"user_email\": \"test@test.com\",\n  \"password\": \"12345\"\n}",
+      "raw": "{\n  \"user_email\": \"{{user_email}}\",\n  \"password\": \"{{user_password}}\"\n}",
       "form": []
     }
   },
@@ -42,11 +42,11 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2024-07-21T09:05:40.952Z",
-    "modified": "2024-08-01T03:33:12.864Z",
+    "modified": "2024-09-24T03:41:24.537Z",
     "headers": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9lbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdXRob3JpdGllcyI6W10sImlhdCI6MTcyMjQ4MzE4NywiZXhwIjoxNzIyNDgzNDg3fQ.5XbJsCP61NyiY4QdPp0Nc_czJnTCdW7MAJT5wkTyM6I"
+      "bearer": "{{token}}"
     }
   },
   {
@@ -58,11 +58,11 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2024-07-21T09:06:42.090Z",
-    "modified": "2024-08-01T03:33:19.274Z",
+    "modified": "2024-09-24T03:41:14.983Z",
     "headers": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9lbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdXRob3JpdGllcyI6W10sImlhdCI6MTcyMjQ4MzE4NywiZXhwIjoxNzIyNDgzNDg3fQ.5XbJsCP61NyiY4QdPp0Nc_czJnTCdW7MAJT5wkTyM6I"
+      "bearer": "{{token}}"
     }
   },
   {
@@ -90,7 +90,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2024-07-31T03:36:20.197Z",
-    "modified": "2024-08-13T03:08:47.566Z",
+    "modified": "2024-09-24T03:40:58.867Z",
     "headers": [],
     "body": {
       "type": "json",
@@ -99,7 +99,7 @@
     },
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9lbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdXRob3JpdGllcyI6W3sibmFtZSI6IlJPTEVfVVNFUiJ9LHsibmFtZSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTcyMzUxODMwNiwiZXhwIjoxNzIzNTE4NjA2fQ.jib3NtyITlt0Wt9B5tiQVILf-9f-QeaTTm9RGpZ5PB8"
+      "bearer": "{{token}}"
     }
   }
 ]
