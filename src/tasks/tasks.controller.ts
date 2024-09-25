@@ -43,8 +43,14 @@ export class TasksController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: number) {
-    this.remove(id)
+  async remove(@Param('id') id: number, @Req() req: AppRequest) {
+    // userId와 taskId를 받아서 userTask를 찾는다.
+    const { id: userId } = req.user
+    // userTask에서 task를 삭제한다.
+    await this.userTaskService.remove(userId, id)
+    // task 자체를 삭제한다.
+    await this.tasksService.remove(id)
+    return `This action delete a #${id} task`
   }
 
   @Put(':id')
