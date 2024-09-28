@@ -74,11 +74,11 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2024-07-31T03:10:16.574Z",
-    "modified": "2024-08-13T03:53:04.735Z",
+    "modified": "2024-09-28T04:00:19.900Z",
     "headers": [],
     "auth": {
       "type": "bearer",
-      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcl9lbWFpbCI6InRlc3RAdGVzdC5jb20iLCJhdXRob3JpdGllcyI6W3sibmFtZSI6IlJPTEVfVVNFUiJ9LHsibmFtZSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTcyMzUyMTE3NywiZXhwIjoxNzIzNTIxNDc3fQ.I4KiROy68-c47QKgtKrw85HXZfB1twCOu8R5s65bplE"
+      "bearer": "{{token}}"
     }
   },
   {
