@@ -26,6 +26,13 @@ export class UserTaskService {
     })
   }
 
+  async validateUserTask(userId: number, taskId: number) {
+    const userTask = await this.findUserTask(userId, taskId)
+    if (!userTask) {
+      throw new Error('해당 유저의 task가 아닙니다.')
+    }
+  }
+
   async create(newUserTask: UserTaskDTO) {
     return await this.userTaskRepository.save(newUserTask)
   }

@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { TaskRepository } from './repository/task.repository'
-import { TaskDTO } from './dto/task.dto'
+import { TaskDTO, UpdateTaskDTO } from './dto/task.dto'
 
 @Injectable()
 export class TasksService {
@@ -22,8 +22,23 @@ export class TasksService {
     await this.taskRepository.delete(id)
   }
 
-  async update(id: number, task: TaskDTO) {
+  async patch(id: number, task: UpdateTaskDTO) {
     const existedTask = await this.taskRepository.findOne({ where: { id } })
+    // `PATCH` 메서드는 리소스의 부분만을 수정하는 데 쓰입니다.
+    const mergedTask = { ...existedTask, ...task }
+
+    if (existedTask) {
+      await this.taskRepository.update(id, mergedTask)
+    }
+    throw new HttpException(
+      `${id}의 task를 찾을 수 없습니다`,
+      HttpStatus.NOT_FOUND,
+    )
+  }
+
+  async put(id: number, task: TaskDTO) {
+    const existedTask = await this.taskRepository.findOne({ where: { id } })
+
     if (existedTask) {
       await this.taskRepository.update(id, task)
     }

@@ -4,17 +4,19 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
-  Put,
   Req,
   UseGuards,
 } from '@nestjs/common'
 import { TasksService } from './tasks.service'
 import { AuthGuard } from '~/auth/security/auth.guard'
-import { TaskDTO } from './dto/task.dto'
+import { TaskDTO, UpdateTaskDTO } from './dto/task.dto'
 import { UserTaskService } from './user-task.service'
 import { AppRequest } from '~/auth/dto/app-request.dto'
+import { ApiOperation, ApiTags } from '@nestjs/swagger'
 
+@ApiTags('할일')
 @Controller('tasks')
 @UseGuards(AuthGuard)
 export class TasksController {
@@ -24,11 +26,13 @@ export class TasksController {
   ) {}
 
   @Get()
+  @ApiOperation({ summary: '할일 가져오기' })
   async findAll(@Req() req: AppRequest) {
-    return await this.userTaskService.findAll(req.user?.id)
+    return await this.userTaskService.findAll(req.user.id)
   }
 
   @Post()
+  @ApiOperation({ summary: '할일 생성' })
   async create(@Body() newTask: TaskDTO, @Req() req: AppRequest) {
     // task를 만든다.
     const task = await this.tasksService.create(newTask)
@@ -43,7 +47,11 @@ export class TasksController {
   }
 
   @Delete(':id')
+  @ApiOperation({ summary: '할일 삭제' })
   async remove(@Param('id') id: number, @Req() req: AppRequest) {
+    // 가드
+    this.userTaskService.validateUserTask(req.user.id, id)
+
     // userId와 taskId를 받아서 userTask를 찾는다.
     const { id: userId } = req.user
     // userTask에서 task를 삭제한다.
@@ -53,9 +61,17 @@ export class TasksController {
     return `This action delete a #${id} task`
   }
 
-  @Put(':id')
-  update(@Param('id') id: number, @Body() task: TaskDTO) {
-    this.tasksService.update(id, task)
-    return `This action updates a #${id} task`
+  @Patch(':id')
+  @ApiOperation({ summary: '할일 수정' })
+  // @ApiCreatedResponse({ description: '' })
+  async patch(
+    @Param('id') id: number,
+    @Req() req: AppRequest,
+    @Body() updateTaskDto: UpdateTaskDTO,
+  ) {
+    this.userTaskService.validateUserTask(req.user.id, id)
+
+    await this.tasksService.patch(id, updateTaskDto)
+    return 'wip'
   }
 }
