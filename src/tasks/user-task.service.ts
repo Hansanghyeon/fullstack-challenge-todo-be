@@ -8,7 +8,7 @@ import { Injectable } from '@nestjs/common'
 export class UserTaskService {
   constructor(private userTaskRepository: UserTaskRepository) {}
 
-  async findAll(userId: number) {
+  async findAll({ userId }: { userId: number }) {
     const tasks = await this.userTaskRepository.find({
       where: { user: { id: userId } },
       relations: ['task'],
@@ -19,15 +19,21 @@ export class UserTaskService {
     )
   }
 
-  async findUserTask(userId: number, taskId: number) {
+  async findUserTask({ userId, taskId }: { userId: number; taskId: number }) {
     // userId와 taskId를 받아서 userTask를 찾는다.
     return await this.userTaskRepository.findOne({
       where: { user: { id: userId }, task: { id: taskId } },
     })
   }
 
-  async validateUserTask(userId: number, taskId: number) {
-    const userTask = await this.findUserTask(userId, taskId)
+  async validateUserTask({
+    userId,
+    taskId,
+  }: {
+    userId: number
+    taskId: number
+  }) {
+    const userTask = await this.findUserTask({ userId, taskId })
     if (!userTask) {
       throw new Error('해당 유저의 task가 아닙니다.')
     }
@@ -37,8 +43,8 @@ export class UserTaskService {
     return await this.userTaskRepository.save(newUserTask)
   }
 
-  async remove(userId: number, taskId: number) {
-    const { id } = await this.findUserTask(userId, taskId)
+  async remove({ userId, taskId }: { userId: number; taskId: number }) {
+    const { id } = await this.findUserTask({ userId, taskId })
     // userId와 taskId를 받아서 삭제한다.
     return await this.userTaskRepository.delete(id)
   }

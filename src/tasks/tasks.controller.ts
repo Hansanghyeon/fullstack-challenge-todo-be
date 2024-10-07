@@ -26,9 +26,25 @@ export class TasksController {
   ) {}
 
   @Get()
-  @ApiOperation({ summary: '할일 가져오기' })
+  @ApiOperation({ summary: '전체 할일 가져오기' })
   async findAll(@Req() req: AppRequest) {
-    return await this.userTaskService.findAll(req.user.id)
+    return await this.userTaskService.findAll({ userId: req.user.id })
+  }
+
+  @Get(':id')
+  @ApiOperation({ summary: '할일 가져오기' })
+  async findOne(@Param('id') taskId: number, @Req() req: AppRequest) {
+    // 가드
+    try {
+      await this.userTaskService.validateUserTask({
+        userId: req.user.id,
+        taskId,
+      })
+    } catch (error) {
+      return '해당 task는 없습니다'
+    }
+    // task 데이터 전달
+    return await this.tasksService.findOne(taskId)
   }
 
   @Post()
@@ -48,30 +64,38 @@ export class TasksController {
 
   @Delete(':id')
   @ApiOperation({ summary: '할일 삭제' })
-  async remove(@Param('id') id: number, @Req() req: AppRequest) {
-    // 가드
-    this.userTaskService.validateUserTask(req.user.id, id)
-
-    // userId와 taskId를 받아서 userTask를 찾는다.
+  async remove(@Param('id') taskId: number, @Req() req: AppRequest) {
     const { id: userId } = req.user
+    // 가드
+    try {
+      await this.userTaskService.validateUserTask({ userId, taskId })
+    } catch (error) {
+      return '해당 task는 없습니다'
+    }
+
     // userTask에서 task를 삭제한다.
-    await this.userTaskService.remove(userId, id)
+    await this.userTaskService.remove({ userId, taskId })
     // task 자체를 삭제한다.
-    await this.tasksService.remove(id)
-    return `This action delete a #${id} task`
+    await this.tasksService.remove(taskId)
+    return `This action delete a #${taskId} task`
   }
 
   @Patch(':id')
   @ApiOperation({ summary: '할일 수정' })
   // @ApiCreatedResponse({ description: '' })
   async patch(
-    @Param('id') id: number,
+    @Param('id') taskId: number,
     @Req() req: AppRequest,
     @Body() updateTaskDto: UpdateTaskDTO,
   ) {
-    this.userTaskService.validateUserTask(req.user.id, id)
+    const { id: userId } = req.user
+    try {
+      await this.userTaskService.validateUserTask({ userId, taskId })
+    } catch (error) {
+      return '해당 task는 없습니다'
+    }
 
-    await this.tasksService.patch(id, updateTaskDto)
-    return 'wip'
+    await this.tasksService.patch(taskId, updateTaskDto)
+    return `This action updates a #${taskId} task`
   }
 }

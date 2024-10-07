@@ -11,7 +11,8 @@ export class TasksService {
   }
 
   async findOne(id: number) {
-    return await this.taskRepository.findOne({ where: { id } })
+    const task = await this.taskRepository.findOne({ where: { id } })
+    return task
   }
 
   async create(newTask: TaskDTO) {
@@ -28,7 +29,9 @@ export class TasksService {
     const mergedTask = { ...existedTask, ...task }
 
     if (existedTask) {
+      // 업데이트하고
       await this.taskRepository.update(id, mergedTask)
+      return
     }
     throw new HttpException(
       `${id}의 task를 찾을 수 없습니다`,

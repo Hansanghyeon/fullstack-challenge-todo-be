@@ -82,6 +82,32 @@
     }
   },
   {
+    "_id": "eb7354cb-3a1b-4875-815d-2a4090d81eed",
+    "colId": "history",
+    "containerId": "",
+    "name": "{{domain}}/tasks Copy",
+    "url": "{{domain}}/tasks/{{taskId}}",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2024-07-31T03:10:16.574Z",
+    "modified": "2024-10-02T12:04:32.477Z",
+    "headers": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "preReq": {
+      "inlineScripts": [
+        {
+          "script": [
+            "// set id",
+            "tc.setVar('taskId', 26)"
+          ]
+        }
+      ]
+    }
+  },
+  {
     "_id": "03c92a4b-89d8-4358-903d-25196cce46bd",
     "colId": "history",
     "containerId": "",
@@ -100,6 +126,37 @@
     "auth": {
       "type": "bearer",
       "bearer": "{{token}}"
+    }
+  },
+  {
+    "_id": "54a3c12e-5818-4ba0-aee4-d5ac86525174",
+    "colId": "history",
+    "containerId": "",
+    "name": "할일 수정",
+    "url": "{{domain}}/tasks/{{taskId}}",
+    "method": "PATCH",
+    "sortNum": 0,
+    "created": "2024-07-31T03:36:20.197Z",
+    "modified": "2024-09-29T03:17:34.484Z",
+    "headers": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"할일 12093021932\",\n  \"description\": \"설명은 어떻게할 것인가?!!!?!!!?\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{token}}"
+    },
+    "preReq": {
+      "inlineScripts": [
+        {
+          "script": [
+            "// set id",
+            "tc.setVar('taskId', 27)"
+          ]
+        }
+      ]
     }
   }
 ]
