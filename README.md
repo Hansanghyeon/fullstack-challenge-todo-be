@@ -1,6 +1,6 @@
 ## Goal
 
-https://github.com/Hansanghyeon/fullstack-challenge/discussions/1
+https://github.com/octo-fullstack-challenge/.github/discussions/1
 
 
 ## ERD
